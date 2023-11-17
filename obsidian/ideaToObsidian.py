@@ -49,68 +49,75 @@ def html_link(ref):
 def run_loop():
     while True:
         # Print Menu
-        print("\nWhat's the type of reference?")
-        print("1 - Class")
-        print("2 - Method")
-        print("3 - Attribute")
-        print("4 - HTML")
-        print("5 - Exit")
+        print("+-------------------------------+")
+        print("| What's the type of reference? |")
+        print("+-------------------------------+")
+        print("| 1 | Class                     |")
+        print("+-------------------------------+")
+        print("| 2 | Method                    |")
+        print("+-------------------------------+")
+        print("| 3 | Attribute                 |")
+        print("+-------------------------------+")
+        print("| 4 | HTML                      |")
+        print("+-------------------------------+")
+        print("| 5 | Exit                      |")
+        print("+-------------------------------+")
 
         # Receive selection
-        selection = input("Selection: ")
+        selection = input("[ Selection ] ===> ")
 
         # Check if the user wants to exit
         if selection == '5':
-            print("Goodbye!")
+            print("<====[ Goodbye! ]====>")
             break
+        elif selection == 'clear':
+            clear_screen()
+            continue
 
         # Receive input
         user_input = input("Enter your reference: ")
         if user_input.strip() == "":
-            clear_screen()
-            print("Invalid Reference")
+            print("[ Error ] === [ Invalid Reference ]")
             continue
-
-        clear_screen()
 
         # Check what input was given with a match statement
         match selection:
             case '1':
                 if "." not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 output = class_link(user_input)
                 print("Obsidian Link: ", output)
                 pyperclip.copy(output)
             case '2':
                 if "#" not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 elif "." not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 output = method_link(user_input)
-                print("Obsidian Link: ", output)
+                print("[ Obsidian Link ] === [ ", output, " ]")
                 pyperclip.copy(output)
             case '3':
                 if "#" not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 elif "." not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 output = attribute_link(user_input)
-                print("Obsidian Link: ", output)
+                print("[ Obsidian Link ] === [ ", output, " ]")
                 pyperclip.copy(output)
             case '4':
                 if "." not in user_input:
-                    print("Invalid Reference")
+                    print("[ Error ] === [ Invalid Reference ]")
                     continue
                 output = html_link(user_input)
-                print("Obsidian Link: ", output)
+                print("[ Obsidian Link ] === [ ", output, " ]")
                 pyperclip.copy(output)
             case _:
-                print("Invalid Type")
+                print("[ Error ] === [ Invalid Type ]")
                 continue
 
 
