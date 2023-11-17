@@ -45,7 +45,7 @@ def html_link(ref):
 def run_loop():
     while True:
         # Print Menu
-        print("What's the type of reference?")
+        print("\nWhat's the type of reference?")
         print("1 - Class")
         print("2 - Method")
         print("3 - Attribute")
@@ -62,24 +62,46 @@ def run_loop():
 
         # Receive input
         user_input = input("Enter your reference: ")
+        if user_input.strip() == "":
+            clear_screen()
+            print("Invalid Reference")
+            continue
 
         clear_screen()
 
         # Check what input was given with a match statement
         match selection:
             case '1':
+                if "." not in user_input:
+                    print("Invalid Reference")
+                    continue
                 output = class_link(user_input)
                 print("Obsidian Link: ", output)
                 pyperclip.copy(output)
             case '2':
+                if "#" not in user_input:
+                    print("Invalid Reference")
+                    continue
+                elif "." not in user_input:
+                    print("Invalid Reference")
+                    continue
                 output = method_link(user_input)
                 print("Obsidian Link: ", output)
                 pyperclip.copy(output)
             case '3':
+                if "#" not in user_input:
+                    print("Invalid Reference")
+                    continue
+                elif "." not in user_input:
+                    print("Invalid Reference")
+                    continue
                 output = attribute_link(user_input)
                 print("Obsidian Link: ", output)
                 pyperclip.copy(output)
             case '4':
+                if "." not in user_input:
+                    print("Invalid Reference")
+                    continue
                 output = html_link(user_input)
                 print("Obsidian Link: ", output)
                 pyperclip.copy(output)
