@@ -2,7 +2,8 @@
 
 ## Disclaimer
 This is a repo for utilities I made that benefited my work and productivity.
-Feel free tu use them.
+
+Feel free to use them.
 
 ## Index
 - [Obsidian Utilities](#obsidian-utilities)
