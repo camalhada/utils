@@ -26,10 +26,14 @@ def method_link(ref):
 def attribute_link(ref):
     parts = ref.split('#')
     path = ""
+    if "_" in parts[1]:
+        tag = parts[1].replace("_", "-")
+    else:
+        tag = parts[1]
     path_parts = parts[0].split('.')
     for part in path_parts:
         path += part + "/"
-    return f"- [{parts[1]}]({path}{path_parts[-1]}.md#^{parts[1]})"
+    return f"- [{parts[1]}]({path}{path_parts[-1]}.md#^{tag})"
 
 
 def html_link(ref):
