@@ -72,6 +72,8 @@ def select_checker(selection):
     elif selection == 'clear':
         clear_screen()
         return 'skip'
+    if selection in ('1', '2', '3', '4'):
+        return selection
     match selection:
         case 'class':
             return '1'
@@ -155,5 +157,6 @@ def run_loop():
 
 
 if __name__ == "__main__":
+    clear_screen()
     # Run Loop
     run_loop()
